@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>snap on blogxq</title>
+    <link>https://eplq.github.io/tags/snap/</link>
+    <description>Recent content in snap on blogxq</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-ES</language>
+    <lastBuildDate>Thu, 23 Jun 2022 00:00:00 +0200</lastBuildDate><atom:link href="https://eplq.github.io/tags/snap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Inauguración</title>
+      <link>https://eplq.github.io/posts/inauguraci%C3%B3n/</link>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0200</pubDate>
+      
+      <guid>https://eplq.github.io/posts/inauguraci%C3%B3n/</guid>
+      <description>Inauguración del blog Hola, soy Enrique Pavón y esta es la primera entrada de lo que será mi blog a la hora de escribir este artículo. La idea es relatar mis experiencias, toma de decisiones, problemas y otros eventos dignos de relatar en los procesos de instalación, prueba o uso de software, conceptos y herramientas, entre otros.
+La intención no es ser objetivo, pero sí riguroso y explicativo, para que mis experiencias puedan servir como referencia o componente de aprendizaje para otras personas, o que simplemente sea un entretenimiento para tener la mente activa y entretenida.</description>
+    </item>
+    
+  </channel>
+</rss>
