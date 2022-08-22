@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>shell on blogxq</title>
+    <link>https://eplq.github.io/tags/shell/</link>
+    <description>Recent content in shell on blogxq</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-ES</language>
+    <lastBuildDate>Mon, 22 Aug 2022 09:39:25 +0200</lastBuildDate><atom:link href="https://eplq.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instalando un terminal, intérprete y prompt nuevos</title>
+      <link>https://eplq.github.io/posts/instalando-un-entorno-nuevo/</link>
+      <pubDate>Mon, 22 Aug 2022 09:39:25 +0200</pubDate>
+      
+      <guid>https://eplq.github.io/posts/instalando-un-entorno-nuevo/</guid>
+      <description>Acabo de instalar, otra vez, Ubuntu y me apetece cambiar cosas. Cambiar de emulador de terminal, de prompt y de intérprete de comandos concretamente.
+La idea viene, no solo de tener sistema operativo fresco, sino también de un vídeo de Antonio Sarosi en el que hablaba de las tres cosas que vamos a instalar y configurar hoy.
+Por ello, en esta entrada vamos a ver como podemos cambiar todo esto sin morir en el intento.</description>
+    </item>
+    
+  </channel>
+</rss>

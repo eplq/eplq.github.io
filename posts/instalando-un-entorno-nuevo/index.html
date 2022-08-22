@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Instalando un terminal, intérprete y prompt nuevos | blogxq</title>
+<meta name="keywords" content="zsh, oh my zsh, alacritty, prompt, shell">
+<meta name="description" content="Acabo de instalar, otra vez, Ubuntu y me apetece cambiar cosas. Cambiar de emulador de terminal, de prompt y de intérprete de comandos concretamente.
+La idea viene, no solo de tener sistema operativo fresco, sino también de un vídeo de Antonio Sarosi en el que hablaba de las tres cosas que vamos a instalar y configurar hoy.
+Por ello, en esta entrada vamos a ver como podemos cambiar todo esto sin morir en el intento.">
+<meta name="author" content="">
+<link rel="canonical" href="https://eplq.github.io/posts/instalando-un-entorno-nuevo/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://eplq.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://eplq.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://eplq.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://eplq.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://eplq.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Instalando un terminal, intérprete y prompt nuevos" />
+<meta property="og:description" content="Acabo de instalar, otra vez, Ubuntu y me apetece cambiar cosas. Cambiar de emulador de terminal, de prompt y de intérprete de comandos concretamente.
+La idea viene, no solo de tener sistema operativo fresco, sino también de un vídeo de Antonio Sarosi en el que hablaba de las tres cosas que vamos a instalar y configurar hoy.
+Por ello, en esta entrada vamos a ver como podemos cambiar todo esto sin morir en el intento." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://eplq.github.io/posts/instalando-un-entorno-nuevo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-22T09:39:25&#43;02:00" />
+<meta property="article:modified_time" content="2022-08-22T09:39:25&#43;02:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Instalando un terminal, intérprete y prompt nuevos"/>
+<meta name="twitter:description" content="Acabo de instalar, otra vez, Ubuntu y me apetece cambiar cosas. Cambiar de emulador de terminal, de prompt y de intérprete de comandos concretamente.
+La idea viene, no solo de tener sistema operativo fresco, sino también de un vídeo de Antonio Sarosi en el que hablaba de las tres cosas que vamos a instalar y configurar hoy.
+Por ello, en esta entrada vamos a ver como podemos cambiar todo esto sin morir en el intento."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://eplq.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Instalando un terminal, intérprete y prompt nuevos",
+      "item": "https://eplq.github.io/posts/instalando-un-entorno-nuevo/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Instalando un terminal, intérprete y prompt nuevos",
+  "name": "Instalando un terminal, intérprete y prompt nuevos",
+  "description": "Acabo de instalar, otra vez, Ubuntu y me apetece cambiar cosas. Cambiar de emulador de terminal, de prompt y de intérprete de comandos concretamente.\nLa idea viene, no solo de tener sistema operativo fresco, sino también de un vídeo de Antonio Sarosi en el que hablaba de las tres cosas que vamos a instalar y configurar hoy.\nPor ello, en esta entrada vamos a ver como podemos cambiar todo esto sin morir en el intento.",
+  "keywords": [
+    "zsh", "oh my zsh", "alacritty", "prompt", "shell"
+  ],
+  "articleBody": "Acabo de instalar, otra vez, Ubuntu y me apetece cambiar cosas. Cambiar de emulador de terminal, de prompt y de intérprete de comandos concretamente.\nLa idea viene, no solo de tener sistema operativo fresco, sino también de un vídeo de Antonio Sarosi en el que hablaba de las tres cosas que vamos a instalar y configurar hoy.\nPor ello, en esta entrada vamos a ver como podemos cambiar todo esto sin morir en el intento.\nEmulador de terminal Y como comienzo, está bien cambiar de emulador de terminal. El electo es Alacritty.\nAlacritty es un emulador de terminal, como pueden ser Gnome Terminal o XTerm, escrito en Rust y que tiene aceleración por GPU. Lo que me gusta realmente de Alacritty es que se puede configurar con un archivo YAML, lo que lo hace fácilmente configurable simplemente copiando un archivo.\nPara instalar Alacritty, primero necesitamos Rust, que es el lenguaje en el que está programado:\ncurl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh Seguimos las instrucciones del instalador y reiniciamos el terminal.\nAhora que tenemos Rust, utilizamos cargo para instalar Alacritty:\ncargo install alacritty Y ya lo tendríamos instalado. Ahora bien, cuando pulsamos Ctrl+Alt+T se sigue a abriendo Gnome Terminal, que no es el objetivo.\nPara configurarlo, existe el comando gsettings. Este nos permite configurar todos los aspectos de Gnome.\nEn nuestro caso, los ajustes que nos interesan son:\norg.gnome.desktop.default-applications.terminal exec org.gnome.desktop.default-applications.terminal exec-arg El primero define el binario del terminal por defecto que va a usar Gnome, y el segundo es el argumento que se va a añadir a cada ejecución cuando se llame para ejecutar un programa.\nEn este caso, el segundo tiene el valor -e, como podemos ver con el siguiente comando:\ngsettings get org.gnome.desktop.default-applications.terminal exec-arg Lo vamos a mantener pues, tal como podemos ver en los comandos gnome-terminal --help-terminal-options y alacritty --help, tienen la misma función.\nVamos a cambiar el terminal por defecto con el siguiente comando:\ngsettings set org.gnome.desktop.default-applications.terminal exec $(which alacritty) Y ahora si pulsamos Ctrl+Alt+T, veremos que nos sale Alacritty, en vez de Gnome Terminal.\nHemos tenido éxito con esta parte, vamos a configurar el terminal.\nConfigurando Alacritty Alacritty utiliza un archivo de configuración. Hay varias opciones, como bien pone en su página de GitHub. En este caso, utilizaremos $HOME/.config/alacritty/alacritty.yml.\nSiguiendo las opciones expuestas en la configuración de ejemplo, la conclusión de una buena configuración puede ser algo como lo siguiente:\nwindow: decorations: full opacity: 0.9 startup_mode: Maximized font: size: 12.0 normal: family: \"SauceCodePro Nerd Font\" style: Regular bold: family: \"SauceCodePro Nerd Font\" style: Medium italic: family: \"SauceCodePro Nerd Font\" style: Italic # https://gist.github.com/AlphaTechnolog/d1d5f6557f77f71519cb5713268da7dd Monokai Pro colors: # Default colors primary: background: '0x2D2A2E' foreground: '0xfff1f3' # Normal colors normal: black: '0x2c2525' red: '0xfd6883' green: '0xadda78' yellow: '0xf9cc6c' blue: '0xf38d70' magenta: '0xa8a9eb' cyan: '0x85dacc' white: '0xfff1f3' # Bright colors bright: black: '0x72696a' red: '0xfd6883' green: '0xadda78' yellow: '0xf9cc6c' blue: '0xf38d70' magenta: '0xa8a9eb' cyan: '0x85dacc' white: '0xfff1f3' cursor: style: shape: Beam blinking: On unfocused_hollow: false shell: program: /bin/bash # para cambiarlo más tarde args: - --login Shell o intérprete de comandos Como intérprete de comandos, siempre me ha llamado la atención zsh porque provee varias mejoras sobre bash. Es el que vamos a usar.\nPara instalarlo, utilizamos apt:\nsudo apt install zsh Ahora si ponemos zsh en el terminal, ya podremos usarlo, pero la gracia es que sea el intérprete por defecto. Hay que destacar que esto no nos impide ejecutar scripts en bash porque no lo hemos desinstalado.\nPara ponerlo por defecto, existe el comando chsh. Las opciones válidas para poner como shell residen en el archivo /etc/shells.\nLo configuramos:\nchsh -s /usr/bin/zsh $USER Nos pide la contraseña, intro y ya lo tenemos. Para comprobarlo podemos verlo en el archivo /etc/passwd.\ncat /etc/passwd | grep $USER Sin embargo, cuando abrimos un terminal nuevo, nos sigue saliendo bash. Esto es porque tenemos que cambiar la configuración de Alacritty que, temporalmente, le pusimos bash.\nshell: program: /usr/bin/zsh args: - --login Y ya tendríamos nuestro intérprete instalado.\nAhora vamos a por la última parte, el prompt.\nInstalando el prompt Voy a optar por Oh My Zsh porque es específico de zsh, lo que provee una compatibilidad absoluta. Además, tiene muchos, muchos temas.\nsh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" Es muy rápido y se nota desde el primer momento:\nordenador% sh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" Cloning Oh My Zsh... remote: Enumerating objects: 1276, done. remote: Counting objects: 100% (1276/1276), done. remote: Compressing objects: 100% (1232/1232), done. remote: Total 1276 (delta 24), reused 1201 (delta 24), pack-reused 0 Recibiendo objetos: 100% (1276/1276), 1.06 MiB | 244.00 KiB/s, listo. Resolviendo deltas: 100% (24/24), listo. Desde https://github.com/ohmyzsh/ohmyzsh * [nueva rama] master -\u003e origin/master Rama 'master' configurada para hacer seguimiento a la rama remota 'master' de 'origin'. Ya en 'master' /home/user Looking for an existing zsh config... Found ~/.zshrc. Backing up to /home/kike/.zshrc.pre-oh-my-zsh Using the Oh My Zsh template file and adding it to ~/.zshrc. __ __ ____ / /_ ____ ___ __ __ ____ _____/ /_ / __ \\/ __ \\ / __ `__ \\/ / / / /_ / / ___/ __ \\ / /_/ / / / / / / / / / / /_/ / / /_(__ ) / / / \\____/_/ /_/ /_/ /_/ /_/\\__, / /___/____/_/ /_/ /____/ ....is now installed! Before you scream Oh My Zsh! look over the `.zshrc` file to select plugins, themes, and options. • Follow us on Twitter: https://twitter.com/ohmyzsh • Join our Discord community: https://discord.gg/ohmyzsh • Get stickers, t-shirts, coffee mugs and more: https://shop.planetargon.com/collections/oh-my-zsh ➜ ~ Desde luego, fácil ha sido. Para terminar vamos a activar unos cuantos plugins en el archivo .zshrc. En mi caso se queda así:\nplugins=(git composer docker-compose docker laravel npm python tmux) Creo que no ha sido complicado, pero quizás un poco tedioso pues hay que pasar un rato largo en las documentaciones de los programas para poder configurarlos bien. Pero bueno, ya está hecho y el resultado es bueno.\nEspero que no se haya hecho pesado y que sirva para aprender a manejar un poco más el entorno en el que nos movemos.\nHasta otra.\n",
+  "wordCount" : "1008",
+  "inLanguage": "en",
+  "datePublished": "2022-08-22T09:39:25+02:00",
+  "dateModified": "2022-08-22T09:39:25+02:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://eplq.github.io/posts/instalando-un-entorno-nuevo/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "blogxq",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://eplq.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://eplq.github.io/" accesskey="h" title="blogxq (Alt + H)">blogxq</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Instalando un terminal, intérprete y prompt nuevos
+    </h1>
+    <div class="post-meta"><span title='2022-08-22 09:39:25 +0200 CEST'>August 22, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Acabo de instalar, otra vez, Ubuntu y me apetece cambiar cosas. Cambiar de emulador de terminal, de <em>prompt</em> y de intérprete de comandos concretamente.</p>
+<p>La idea viene, no solo de tener sistema operativo fresco, sino también de un <a href="https://youtu.be/N17zVGfrTiQ?t=1199">vídeo</a> de Antonio Sarosi en el que hablaba de las tres cosas que vamos a instalar y configurar hoy.</p>
+<p>Por ello, en esta entrada vamos a ver como podemos cambiar todo esto sin morir en el intento.</p>
+<h2 id="emulador-de-terminal">Emulador de terminal<a hidden class="anchor" aria-hidden="true" href="#emulador-de-terminal">#</a></h2>
+<p>Y como comienzo, está bien cambiar de emulador de terminal. El electo es <a href="https://github.com/alacritty/alacritty">Alacritty</a>.</p>
+<p>Alacritty es un emulador de terminal, como pueden ser Gnome Terminal o XTerm, escrito en Rust y que tiene aceleración por GPU. Lo que me gusta realmente de Alacritty es que se puede configurar con un archivo YAML, lo que lo hace fácilmente configurable simplemente copiando un archivo.</p>
+<p>Para instalar Alacritty, primero necesitamos Rust, que es el lenguaje en el que está programado:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --proto <span style="color:#e6db74">&#39;=https&#39;</span> --tlsv1.2 -sSf https://sh.rustup.rs | sh
+</span></span></code></pre></div><p>Seguimos las instrucciones del instalador y reiniciamos el terminal.</p>
+<p>Ahora que tenemos Rust, utilizamos <strong>cargo</strong> para instalar Alacritty:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cargo install alacritty
+</span></span></code></pre></div><p>Y ya lo tendríamos instalado. Ahora bien, cuando pulsamos Ctrl+Alt+T se sigue a abriendo Gnome Terminal, que no es el objetivo.</p>
+<p>Para configurarlo, existe el comando <code>gsettings</code>. Este nos permite configurar todos los aspectos de Gnome.</p>
+<p>En nuestro caso, los ajustes que nos interesan son:</p>
+<pre tabindex="0"><code>org.gnome.desktop.default-applications.terminal exec
+org.gnome.desktop.default-applications.terminal exec-arg
+</code></pre><p>El primero define el binario del terminal por defecto que va a usar Gnome, y el segundo es el argumento que se va a añadir a cada ejecución cuando se llame para ejecutar un programa.</p>
+<p>En este caso, el segundo tiene el valor <code>-e</code>, como podemos ver con el siguiente comando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gsettings get org.gnome.desktop.default-applications.terminal exec-arg
+</span></span></code></pre></div><p>Lo vamos a mantener pues, tal como podemos ver en los comandos <code>gnome-terminal --help-terminal-options</code> y <code>alacritty --help</code>, tienen la misma función.</p>
+<p>Vamos a cambiar el terminal por defecto con el siguiente comando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gsettings set org.gnome.desktop.default-applications.terminal exec <span style="color:#66d9ef">$(</span>which alacritty<span style="color:#66d9ef">)</span>
+</span></span></code></pre></div><p>Y ahora si pulsamos Ctrl+Alt+T, veremos que nos sale Alacritty, en vez de Gnome Terminal.</p>
+<p>Hemos tenido éxito con esta parte, vamos a configurar el terminal.</p>
+<h3 id="configurando-alacritty">Configurando Alacritty<a hidden class="anchor" aria-hidden="true" href="#configurando-alacritty">#</a></h3>
+<p>Alacritty utiliza un archivo de configuración. Hay varias opciones, como bien <a href="https://github.com/alacritty/alacritty#configuration">pone</a> en su página de GitHub. En este caso, utilizaremos <code>$HOME/.config/alacritty/alacritty.yml</code>.</p>
+<p>Siguiendo las opciones expuestas en la <a href="https://github.com/alacritty/alacritty/blob/master/alacritty.yml">configuración de ejemplo</a>, la conclusión de una buena configuración puede ser algo como lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">window</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">decorations</span>: <span style="color:#ae81ff">full</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">opacity</span>: <span style="color:#ae81ff">0.9</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">startup_mode</span>: <span style="color:#ae81ff">Maximized</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">font</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">size</span>: <span style="color:#ae81ff">12.0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">normal</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">family</span>: <span style="color:#e6db74">&#34;SauceCodePro Nerd Font&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">style</span>: <span style="color:#ae81ff">Regular</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">bold</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">family</span>: <span style="color:#e6db74">&#34;SauceCodePro Nerd Font&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">style</span>: <span style="color:#ae81ff">Medium</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">italic</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">family</span>: <span style="color:#e6db74">&#34;SauceCodePro Nerd Font&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">style</span>: <span style="color:#ae81ff">Italic</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://gist.github.com/AlphaTechnolog/d1d5f6557f77f71519cb5713268da7dd Monokai Pro</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">colors</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Default colors</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">primary</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">background</span>: <span style="color:#e6db74">&#39;0x2D2A2E&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">foreground</span>: <span style="color:#e6db74">&#39;0xfff1f3&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Normal colors</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">normal</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">black</span>:   <span style="color:#e6db74">&#39;0x2c2525&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">red</span>:     <span style="color:#e6db74">&#39;0xfd6883&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">green</span>:   <span style="color:#e6db74">&#39;0xadda78&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">yellow</span>:  <span style="color:#e6db74">&#39;0xf9cc6c&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">blue</span>:    <span style="color:#e6db74">&#39;0xf38d70&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">magenta</span>: <span style="color:#e6db74">&#39;0xa8a9eb&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">cyan</span>:    <span style="color:#e6db74">&#39;0x85dacc&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">white</span>:   <span style="color:#e6db74">&#39;0xfff1f3&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Bright colors</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">bright</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">black</span>:   <span style="color:#e6db74">&#39;0x72696a&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">red</span>:     <span style="color:#e6db74">&#39;0xfd6883&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">green</span>:   <span style="color:#e6db74">&#39;0xadda78&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">yellow</span>:  <span style="color:#e6db74">&#39;0xf9cc6c&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">blue</span>:    <span style="color:#e6db74">&#39;0xf38d70&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">magenta</span>: <span style="color:#e6db74">&#39;0xa8a9eb&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">cyan</span>:    <span style="color:#e6db74">&#39;0x85dacc&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">white</span>:   <span style="color:#e6db74">&#39;0xfff1f3&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">cursor</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">style</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">shape</span>: <span style="color:#ae81ff">Beam</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">blinking</span>: <span style="color:#66d9ef">On</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">unfocused_hollow</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">program</span>: <span style="color:#ae81ff">/bin/bash</span> <span style="color:#75715e"># para cambiarlo más tarde</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">args</span>:
+</span></span><span style="display:flex;"><span>                - --<span style="color:#ae81ff">login</span>
+</span></span></code></pre></div><h2 id="shell-o-intérprete-de-comandos">Shell o intérprete de comandos<a hidden class="anchor" aria-hidden="true" href="#shell-o-intérprete-de-comandos">#</a></h2>
+<p>Como intérprete de comandos, siempre me ha llamado la atención <em><a href="https://www.zsh.org/">zsh</a></em> porque provee <a href="https://www.fosslinux.com/58416/bash-vs-zsh-differences.htm">varias mejoras</a> sobre <em>bash</em>. Es el que vamos a usar.</p>
+<p>Para instalarlo, utilizamos <em>apt</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install zsh
+</span></span></code></pre></div><p>Ahora si ponemos <code>zsh</code> en el terminal, ya podremos usarlo, pero la gracia es que sea el intérprete por defecto. Hay que destacar que esto no nos impide ejecutar scripts en <em>bash</em> porque no lo hemos desinstalado.</p>
+<p>Para ponerlo por defecto, existe el comando <a href="https://linux.die.net/man/1/chsh"><code>chsh</code></a>. Las opciones válidas para poner como shell residen en el archivo <code>/etc/shells</code>.</p>
+<p>Lo configuramos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>chsh -s /usr/bin/zsh $USER
+</span></span></code></pre></div><p>Nos pide la contraseña, intro y ya lo tenemos. Para comprobarlo podemos verlo en el archivo <code>/etc/passwd</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat /etc/passwd | grep $USER
+</span></span></code></pre></div><p>Sin embargo, cuando abrimos un terminal nuevo, nos sigue saliendo <em>bash</em>. Esto es porque tenemos que cambiar la configuración de Alacritty que, temporalmente, le pusimos <em>bash</em>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">program</span>: <span style="color:#ae81ff">/usr/bin/zsh</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">args</span>:
+</span></span><span style="display:flex;"><span>		- --<span style="color:#ae81ff">login</span>
+</span></span></code></pre></div><p>Y ya tendríamos nuestro intérprete instalado.</p>
+<p>Ahora vamos a por la última parte, el <em>prompt</em>.</p>
+<h2 id="instalando-el-prompt">Instalando el <em>prompt</em><a hidden class="anchor" aria-hidden="true" href="#instalando-el-prompt">#</a></h2>
+<p>Voy a optar por <a href="https://ohmyz.sh">Oh My Zsh</a> porque es específico de <em>zsh</em>, lo que provee una compatibilidad absoluta. Además, tiene <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">muchos, muchos temas</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Es muy rápido y se nota desde el primer momento:</p>
+<pre tabindex="0"><code>ordenador% sh -c &#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&#34;
+Cloning Oh My Zsh...
+remote: Enumerating objects: 1276, done.
+remote: Counting objects: 100% (1276/1276), done.
+remote: Compressing objects: 100% (1232/1232), done.
+remote: Total 1276 (delta 24), reused 1201 (delta 24), pack-reused 0
+Recibiendo objetos: 100% (1276/1276), 1.06 MiB | 244.00 KiB/s, listo.
+Resolviendo deltas: 100% (24/24), listo.
+Desde https://github.com/ohmyzsh/ohmyzsh
+ * [nueva rama]      master     -&gt; origin/master
+Rama &#39;master&#39; configurada para hacer seguimiento a la rama remota &#39;master&#39; de &#39;origin&#39;.
+Ya en &#39;master&#39;
+/home/user
+
+Looking for an existing zsh config...
+Found ~/.zshrc. Backing up to /home/kike/.zshrc.pre-oh-my-zsh
+Using the Oh My Zsh template file and adding it to ~/.zshrc.
+
+         __                                     __
+  ____  / /_     ____ ___  __  __   ____  _____/ /_
+ / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \
+/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / /
+\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/
+                        /____/                       ....is now installed!
+
+
+Before you scream Oh My Zsh! look over the `.zshrc` file to select plugins, themes, and options.
+
+• Follow us on Twitter: https://twitter.com/ohmyzsh
+• Join our Discord community: https://discord.gg/ohmyzsh
+• Get stickers, t-shirts, coffee mugs and more: https://shop.planetargon.com/collections/oh-my-zsh
+
+➜  ~
+</code></pre><p>Desde luego, fácil ha sido. Para terminar vamos a activar unos cuantos plugins en el archivo <code>.zshrc</code>. En mi caso se queda así:</p>
+<pre tabindex="0"><code>plugins=(git composer docker-compose docker laravel npm python tmux)
+</code></pre><p>Creo que no ha sido complicado, pero quizás un poco tedioso pues hay que pasar un rato largo en las documentaciones de los programas para poder configurarlos bien. Pero bueno, ya está hecho y el resultado es bueno.</p>
+<p>Espero que no se haya hecho pesado y que sirva para aprender a manejar un poco más el entorno en el que nos movemos.</p>
+<p>Hasta otra.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://eplq.github.io/tags/zsh/">zsh</a></li>
+      <li><a href="https://eplq.github.io/tags/oh-my-zsh/">oh my zsh</a></li>
+      <li><a href="https://eplq.github.io/tags/alacritty/">alacritty</a></li>
+      <li><a href="https://eplq.github.io/tags/prompt/">prompt</a></li>
+      <li><a href="https://eplq.github.io/tags/shell/">shell</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://eplq.github.io/">blogxq</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

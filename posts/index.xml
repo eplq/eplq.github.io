@@ -6,7 +6,18 @@
     <description>Recent content in Posts on blogxq</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-ES</language>
-    <lastBuildDate>Fri, 24 Jun 2022 07:41:09 +0200</lastBuildDate><atom:link href="https://eplq.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Aug 2022 09:39:25 +0200</lastBuildDate><atom:link href="https://eplq.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instalando un terminal, intérprete y prompt nuevos</title>
+      <link>https://eplq.github.io/posts/instalando-un-entorno-nuevo/</link>
+      <pubDate>Mon, 22 Aug 2022 09:39:25 +0200</pubDate>
+      
+      <guid>https://eplq.github.io/posts/instalando-un-entorno-nuevo/</guid>
+      <description>Acabo de instalar, otra vez, Ubuntu y me apetece cambiar cosas. Cambiar de emulador de terminal, de prompt y de intérprete de comandos concretamente.
+La idea viene, no solo de tener sistema operativo fresco, sino también de un vídeo de Antonio Sarosi en el que hablaba de las tres cosas que vamos a instalar y configurar hoy.
+Por ello, en esta entrada vamos a ver como podemos cambiar todo esto sin morir en el intento.</description>
+    </item>
+    
     <item>
       <title>Publicando el blog en GitHub Pages - Inauguración Parte 2</title>
       <link>https://eplq.github.io/posts/inauguraci%C3%B3n-parte-2/</link>
